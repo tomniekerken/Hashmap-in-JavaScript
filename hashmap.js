@@ -1,8 +1,7 @@
 // Time complexity is O(n²)
 // Space complexity is O(1)
 
-let nums = [2, 7, 11, 18]
-let target = 25
+
 
 const twoSum = (nums, target) => {
     for (let i = 0; i < nums.length; i++) {
@@ -14,22 +13,41 @@ const twoSum = (nums, target) => {
     }
 }
 
-console.log(twoSum(nums, target))
+// console.log(twoSum(nums, target))
 
 // Much more effective way in the time complexity
 // Time complexity is O(n)
 // Space complexity is O(n)
 
+let nums = [2, 7, 11, 18]
+let target = 25
+
 const twoSumMap = (nums, target) => {
+
+    // Map Variable instanziieren
     let map = new Map();
+
+    // For-loop durch nums[]
+    // Zuerst wird die Differenz zwischen target und aktuellem nums[i] berechnet
+
     for (let i = 0; i < nums.length; i++) {
+
         let targetValue = target - nums[i]
+
+        console.log("targetvalue: ", targetValue)
+
         let matchValue = map.get(targetValue)
+
+        console.log("matchvalue: ", matchValue)
+
         if (matchValue !== undefined) {
             return [matchValue,i]
         }
+
         map.set(nums[i], i)
+
+        console.log("new map", map)
     }
 }
 
-console.log(twoSumMap(nums, target))
+twoSumMap(nums, target)
